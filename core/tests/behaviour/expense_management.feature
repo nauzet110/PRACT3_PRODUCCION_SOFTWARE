@@ -40,7 +40,20 @@ Feature: Gestión de gastos
     And elimino el gasto con id 3
     Then el total de dinero gastado debe ser 40 euros
 
-  Scenario: Actualizar un gasto modifica el total gastado
+  # --- BONUS: 3 TESTS ADICIONALES (VERIFICACIÓN ESTRICTA POR SERVICIO) ---
+
+  Scenario: Bonus 1 - Verificación estricta de actualización de importe
     Given un gestor con un gasto de 20 euros
     When actualizo el gasto con id 1 para que cueste 50 euros
     Then el total de dinero gastado debe ser 50 euros
+
+  Scenario: Bonus 2 - Verificación de integridad tras intento de borrado fallido
+    Given un gestor con un gasto de 15 euros llamado "Cena"
+    When elimino el gasto con id 999
+    Then el total de dinero gastado debe ser 15 euros
+    And el gasto con id 1 debe aparecer en el servicio como "Cena"
+
+  Scenario: Bonus 3 - Verificación estricta de cambio de nombre
+    Given un gestor con un gasto de 20 euros llamado "Cine"
+    When actualizo el título del gasto con id 1 a "Teatro"
+    Then el gasto con id 1 debe aparecer en el servicio como "Teatro"
