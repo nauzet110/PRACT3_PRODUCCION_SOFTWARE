@@ -24,11 +24,11 @@ class ExpenseService:
         self._next_id = 1
 
     def create_expense(
-        self,
-        title: str,
-        amount: float,
-        description: str = "",
-        expense_date: date = None,
+            self,
+            title: str,
+            amount: float,
+            description: str = "",
+            expense_date: date = None,
     ) -> Expense:
         if expense_date == None:
             expense_date = date.today()
@@ -47,11 +47,11 @@ class ExpenseService:
         self._repository.remove(expense_id)
 
     def update_expense(
-        self,
-        expense_id: int,
-        title: str | None = None,
-        amount: float | None = None,
-        description: str | None = None,
+            self,
+            expense_id: int,
+            title: str | None = None,
+            amount: float | None = None,
+            description: str | None = None,
     ) -> None:
         expense = self._repository.get_by_id(expense_id)
         if not expense:
@@ -69,11 +69,9 @@ class ExpenseService:
 
     def total_amount(self) -> float:
         """
-        # FIXME:
-        Debería de devolver la suma de los amounts de todos los Expenses, ahora mismo parece devolver 0 solamente.
-        :return:
+        Devuelve la suma de los amounts de todos los Expenses.
         """
-        return 0
+        return sum(expense.amount for expense in self.list_expenses())
 
     def total_by_month(self) -> dict[str, float]:
         totals = defaultdict(float)
