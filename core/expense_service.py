@@ -24,11 +24,11 @@ class ExpenseService:
         self._next_id = 1
 
     def create_expense(
-            self,
-            title: str,
-            amount: float,
-            description: str = "",
-            expense_date: date = None,
+        self,
+        title: str,
+        amount: float,
+        description: str = "",
+        expense_date: date = None,
     ) -> Expense:
         if expense_date == None:
             expense_date = date.today()
@@ -47,11 +47,11 @@ class ExpenseService:
         self._repository.remove(expense_id)
 
     def update_expense(
-            self,
-            expense_id: int,
-            title: str | None = None,
-            amount: float | None = None,
-            description: str | None = None,
+        self,
+        expense_id: int,
+        title: str | None = None,
+        amount: float | None = None,
+        description: str | None = None,
     ) -> None:
         expense = self._repository.get_by_id(expense_id)
         if not expense:

@@ -4,7 +4,7 @@ from datetime import date
 from core.domain_error import (
     InvalidAmountError,
     InvalidExpenseDateError,
-    EmptyTitleError
+    EmptyTitleError,
 )
 
 

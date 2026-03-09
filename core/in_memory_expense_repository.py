@@ -17,7 +17,9 @@ class InMemoryExpenseRepository(ExpenseRepository):
         """
         Esta función elimina de la lista self._expenses el gasto con la id expense_id.
         """
-        self._expenses = [expense for expense in self._expenses if expense.id != expense_id]
+        self._expenses = [
+            expense for expense in self._expenses if expense.id != expense_id
+        ]
 
     def get_by_id(self, expense_id: int) -> Expense | None:
         return next(

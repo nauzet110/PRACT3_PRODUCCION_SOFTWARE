@@ -71,8 +71,8 @@ def test_get_by_id_returns_none_if_not_found():
     Prueba que el método repo.get_by_id() retorna None cuando se consulta un id que no corresponde a ningún gasto guardado.
     """
     repo = InMemoryExpenseRepository()
-    repo.save(create_expense(id=1)) # Guardamos uno con ID 1 por si acaso
+    repo.save(create_expense(id=1))  # Guardamos uno con ID 1 por si acaso
 
-    resultado = repo.get_by_id(999) # Buscamos uno que no existe
+    resultado = repo.get_by_id(999)  # Buscamos uno que no existe
 
     assert resultado is None

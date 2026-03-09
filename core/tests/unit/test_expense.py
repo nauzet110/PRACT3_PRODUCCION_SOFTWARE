@@ -38,7 +38,7 @@ def test_negative_amount_raises_error():
             title="Prueba Negativa",
             amount=-5.0,
             description="Monto inválido",
-            expense_date=date.today()
+            expense_date=date.today(),
         )
 
 
@@ -54,5 +54,5 @@ def test_future_date_raises_error():
             title="Prueba Futura",
             amount=10.0,
             description="Fecha futura",
-            expense_date=date.today() + timedelta(days=1)
+            expense_date=date.today() + timedelta(days=1),
         )
